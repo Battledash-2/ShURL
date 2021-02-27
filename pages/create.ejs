@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--Required meta tags-->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>ShURL - Shorter URLs</title>
+        <!--Bootstrap CSS-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        <!--Optional JavaScript-->
+        <!--jQuery first, then Popper.js, then Bootstrap JS-->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!--tips: to change the nav placement use .fixed-top,.fixed-bottom,.sticky-top-->
+            <a class="navbar-brand" href="#">ShURL</a>
+            <!--<a class="navbar-brand" href="#">
+                <img src="..." class="d-inline-block align-top" width="30" height="30" alt="...">ShURL
+            </a>-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+        
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Create a link <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="body" style="margin-left: 20px;">
+            <div class="container mt-5 pt-5 mb-5">
+              <div class="row justify-content-center">
+                 <div class="col-md-6 col-lg-4 col-xl-4">
+                    <div class="card">
+                       <div class="card-body">
+                          <div class="text-center m-auto">
+                             <h4 class="text-uppercase text-center">Create Redirect</h4>
+                          </div>
+                          <form action="/create/finish" method="post">
+                             <input type="hidden" name="csrftoken" value="ea49375f43c7e6a59c77df1e4de562b3f1350124eeb70e5d5124e4ce3b5251c2b4d12e9aaf2a3ddc618c178c8dc4620b">
+                             <div class="form-group mb-3">
+                                <label for="emailaddress">Backend </label>
+                                <input name="backend" placeholder="Enter backend" id="backend" class="form-control">
+                             </div>
+                             <div class="form-group mb-3">
+                                <label for="password">Redirect</label>
+                                <div class="input-group bg-light" id="show_hide_password">
+                                   <input class="form-control" id="redirect" name="redirect"  placeholder="Enter redirect">
+                                </div>
+                             </div>
+                             <div class="form-group mb-0 text-center">
+                                <button id="sub" class="btn btn-primary btn-block" type="submit" name="submit"> Create </button>
+                             </div>
+                          </form>
+                          <% if(e) { %>
+                            <div style="margin-top: 10px" class="alert alert-primary alert-dismissible fade show" role="alert">
+                                <%= e %>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                          <% } %>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+            </div>
+        </div>
+    </body>
+</html>
