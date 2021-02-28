@@ -45,7 +45,7 @@ app.get('/create/oops', (req,res)=>{
     res.render(__dirname+'/pages/oops.html');
 });
 app.get('/*', (req,res)=>{
-    let s = req.url.substring(1).split('/');
+    let s = decodeURIComponent(req.url).substring(1).split('/');
     let part = s[0];
 
     // console.log(part, db.JSON().hasOwnProperty(part));
